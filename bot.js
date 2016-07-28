@@ -40,8 +40,8 @@ bot.on("message", function(message) {
 });
 
 if (botConfiguration.useEmail === false) {
-		bot.loginWithToken(botConfiguration.token);
+	bot.loginWithToken(botConfiguration.token);
 } else if (botConfiguration.useEmail === true) {
-	bot.loginWithToken(botConfiguration.email, botConfiguration.password);
+	bot.login(botConfiguration.email, botConfiguration.password);
 }
 
