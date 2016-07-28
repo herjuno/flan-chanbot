@@ -23,7 +23,7 @@ bot.on("message", function(message) {
     }
 
     if(message.content === (prefix + "git")) {
-        bot.reply(message, "Here is my github repository! \n**https://github.com/FlandereScarlet/flan-chan**");
+        bot.reply(message, "Here is my github repository! \n**https://github.com/FlandereScarlet/flan-chanbot/**");
     }
 
 
