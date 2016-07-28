@@ -8,7 +8,7 @@ try {
 var Discord = require("discord.js");
 var botConfiguration = require("./botConfig.json");
 var prefix = (botConfiguration.prefix);
-var commandsList = ("\n" + prefix + "ping\n" + prefix + "help\n" + prefix + "git\n" + prefix + "admintest")
+var commandsList = ("\n" + prefix + "ping\n" + prefix + "help\n" + prefix + "git\n" + prefix + "admintest\n" + prefix + "myinfo\n")
 var bot = new Discord.Client();
 
 bot.on("message", function(message) {
@@ -24,6 +24,10 @@ bot.on("message", function(message) {
 
     if(message.content === (prefix + "git")) {
         bot.reply(message, "Here is my github repository! \n**https://github.com/FlandereScarlet/flan-chanbot/**");
+    }
+
+    if(message.content === (prefix + "myinfo")) {
+        bot.sendMessage(message, "***Displaying Information for " + message.author.username + "***\n\nUser ID: " + message.author.id + "\nAvatar: " + message.author.avatarURL + "\nDiscriminator: " + message.author.discriminator + "\nPlaying: " + message.author.game.name + "\nThe voice channel you are in is..." + message.author.voiceChannel + "!");
     }
 
 
