@@ -1,0 +1,7 @@
+{
+	"token": "token", 
+	"prefix": "?",
+	"useEmail": false,
+	"email": "email",
+	"password": "password"
+}
