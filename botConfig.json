@@ -3,5 +3,7 @@
 	"prefix": "?",
 	"useEmail": false,
 	"email": "email",
-	"password": "password"
+	"password": "password",
+	"log": false,
+	"logchannel": ""
 }
