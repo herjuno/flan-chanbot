@@ -9,7 +9,7 @@ var util = require('util');
 
 var botConfiguration = require("./botConfig.json");
 var prefix = (botConfiguration.prefix);
-var commandsList = ("\n" + prefix + "ping\n" + prefix + "help\n" + prefix + "git\n" + prefix + "admintest\n" + prefix + "myinfo\n" + prefix + "config (ADMIN ONLY)\n")
+var commandsList = ("\n" + prefix + "ping\n" + prefix + "help\n" + prefix + "git\n" + prefix + "admintest\n" + prefix + "myinfo\n" + prefix + "config (ADMIN ONLY)\n" + prefix + "adminadd\n");
 var bot = new Discord.Client();
 
 
@@ -107,8 +107,64 @@ bot.on("message", message => {
                 	bot.reply(message, ":x: | Either you havent added yourself to the adminList file... or you're a regular user not in the ADMINLIST. Ask the owner of the server to admin you if you're server staff!");
             	}
 			} else {
-            bot.sendMessage(message, "Caught Error\n```\n" + err + "\n```");
+                bot.sendMessage(message, "Caught Error\n```\n" + err + "\n```");
 			}
+        });
+    }
+
+    if (message.content.startsWith(prefix + "adminadd")) {
+        fs.readFile('./adminList.json', (err, data) => {
+            if (!err) {
+                var adminList = JSON.parse(data);
+                if (adminList.indexOf(message.author.id) > -1) {
+                    if (message.mentions.length === 1) {
+                        if (adminList.indexOf(message.mentions[0].id) === -1) {
+                            adminList.push(message.mentions[0].id);
+                            var newAdminList = JSON.stringify(adminList);
+                            fs.writeFile('./adminList.json', newAdminList, (writeErr) => {
+                                var addedUser = util.format("%s#%s", message.mentions[0].username, message.mentions[0].discriminator);
+                                bot.sendMessage(message, util.format("Successfully added %s to the admin list.", addedUser));
+                            });
+                        } else {
+                            bot.reply(message, "That person is already added to the admin list.");
+                        }
+                    } else {
+                        bot.reply(message, "Please mention **1 (one)** person you wish to add to the admin list.");
+                    }
+                } else if (adminList.indexOf(message.author.id) === -1) {
+                    bot.reply(message, ":x: | Either you havent added yourself to the adminList file... or you're a regular user not in the ADMINLIST. Ask the owner of the server to admin you if you're server staff!");
+                }
+            } else {
+                bot.sendMessage(message, "Caught Error\n```\n" + err + "\n```");
+            }
+        });
+    }
+
+    if (message.content.startsWith(prefix + "adminrem")) {
+        fs.readFile('./adminList.json', (err, data) => {
+            if (!err) {
+                var adminList = JSON.parse(data);
+                if (adminList.indexOf(message.author.id) > -1) {
+                    if (message.mentions.length === 1) {
+                        if (adminList.indexOf(message.mentions[0].id) !== -1) {
+                            delete adminList[message.mentions[0].id];
+                            var removedUser = util.format("%s#%s", message.mentions[0].username, message.mentions[0].discriminator);
+                            var newAdminList = JSON.stringify(adminList);
+                            fs.writeFile('./adminList.json', newAdminList, (writeErr) => {
+                                bot.sendMessage(message, util.format("Successfuly removed %s from the admin list.", removedUser));
+                            });
+                        } else {
+                            bot.reply(mess, "That user is not in the admin list!");
+                        }
+                    } else {
+                        bot.reply(message, "Please mention **1 (one)** person you wish to remove from the admin list.");
+                    }
+                } else if (adminList.indexOf(message.author.id) === -1) {
+                    bot.reply(message, ":x: | Either you havent added yourself to the adminList file... or you're a regular user not in the ADMINLIST. Ask the owner of the server to admin you if you're server staff!");
+                }
+            } else {
+                bot.sendMessage(message, "Caught Error\n```\n" + err + "\n```");
+            }
         });
     }
 
