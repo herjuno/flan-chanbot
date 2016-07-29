@@ -6,8 +6,6 @@ try {
 	console.log("You need to install discord.js!!!");
 }
 
-
-var Discord = require("discord.js");
 var botConfiguration = require("./botConfig.json");
 var prefix = (botConfiguration.prefix);
 var commandsList = ("\n" + prefix + "ping\n" + prefix + "help\n" + prefix + "git\n" + prefix + "admintest\n" + prefix + "myinfo\n" + prefix + "config (ADMIN ONLY)\n")
@@ -81,7 +79,9 @@ bot.on("message", function(message) {
     } else if(message.content === (prefix + "config")) {
     	bot.reply(message, "❌ | Either you havent added yourself to the adminList variable...or you're a regular user not in the ADMINLIST. Ask the owner of the server to admin you if you're server staff!")
     }
-
+  if (message.content === (prefix + "f")){
+  	bot.sendMessage(msg.channel, masg.author + " has pad respects.");
+  }
 });
 
 
