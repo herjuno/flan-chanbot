@@ -1,0 +1,21 @@
+{
+  "name": "flan-chanbot",
+  "version": "0.0.3-20160729~master",
+  "description": "",
+  "readme": "README.md",
+  "maintainers": [
+    "sr229",
+    "acdenisSK",
+    "Ovyerus"
+  ],
+  "author": "FlandreScarlet",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FlandreScarlet/flan-chanbot.git"
+  },
+  "license": "LGPLv3",
+"dependencies": {
+  "discord.js" : "^8.0.x"
+},
+"main" : "bot.js"
+}
