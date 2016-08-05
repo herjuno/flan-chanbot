@@ -15,14 +15,14 @@ var bot = new Discord.Client();
 
 bot.on("ready", function() {
     console.log("*- flan-chanbot: made by Flandre Scarlet -*");
-    console.log("Current Configuration: ")
+    console.log("Current Configuration: ");
     console.log("PREFIX: " + botConfiguration.prefix);
     console.log("USING EMAIL: " + botConfiguration.useEmail);
     console.log("ENABLED LOGGING JOIN & LEAVE: " + botConfiguration.log);
     if (botConfiguration.logchannel === ("") && botConfiguration.log === false) {
-        console.log("Currently not using log channel ID.")
+        console.log("Currently not using log channel ID.");
     } else if (botConfiguration.logchannel + ("") && botConfiguration.log === true) {
-        console.log("You seem to be using a channel id.")
+        console.log("You seem to be using a channel id.");
     }
     if (botConfiguration.logchannel === ("") && botConfiguration.log === true) {
         console.log("Currently not using log channel ID, you also have the log setting set to true..")
@@ -49,7 +49,7 @@ bot.on("message", message => {
     }
 
     if (message.content === prefix + "help") {
-        bot.sendMessage(message, "**Flandre Scarlet**: An open source bot made for anybody by Flandre Scarlet!\n\nMy current prefix is `" + prefix + "`\n**CURRENT COMMANDS**" + commandsList);
+         bot.sendMessage(message, "**" + botConfiguration.botName + "**: " + botConfiguration.botDesc + "\n\nMy current prefix is `" + prefix + "`\n**CURRENT COMMANDS**" + commandsList);
     }
 
     if (message.content === prefix + "git") {
