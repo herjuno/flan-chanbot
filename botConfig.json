@@ -4,6 +4,8 @@
 	"useEmail": false,
 	"email": "email",
 	"password": "password",
+	"botName": "default-name-test",
+	"botDesc": "default-description-test",
 	"log": false,
 	"logchannel": ""
 }
