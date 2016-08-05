@@ -1,5 +1,5 @@
 # flan-chanbot
-Just a Discord.js Bot made by a few people.
+Just an discord.js Bot made by a few people.
 
 # Running
 
@@ -28,6 +28,6 @@ When editing the ``botConfig.json`` file edit only these settings.
 After editing the ``botConfig.json`` file, Do NOT edit ANYTHING else, except for the ``adminList.json`` file. 
 
 # Adding Admins
-In the ``adminList.json`` file put your user id in it, Then you are able to add admins with the bot using ``?adminadd``.
+In the ``adminList.json`` file, put your user id in it, Then you are able to add admin's with the bot using ``?adminadd``.
 
 
