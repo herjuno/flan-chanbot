@@ -74,7 +74,7 @@ bot.on("message", message => {
                  		bot.sendMessage(message, "Caught Error\n```\n" + err + "\n```");
                 	}
             	} else if (adminList.indexOf(message.author.id) === -1) {
-                	bot.reply(message, ":x: | Either you havent added yourself to the adminList file... or you're a regular user not in the ADMINLIST. Ask the owner of the server to admin you if you're server staff!");
+                	bot.reply(message, ":x: You aren't in the Admin List. Please contact the Server Owner if you are staff!");
             	}
 			} else {
 				bot.sendMessage(message, "Caught Error\n```\n" + err + "\n```");
@@ -87,9 +87,9 @@ bot.on("message", message => {
 			if (!err) {
             	var adminList = JSON.parse(data);
             	if (adminList.indexOf(message.author.id) > -1) {
-                	bot.reply(message, ":white_check_mark: | All seems to be good with you! you seem to be an ADMIN!");
+                	bot.reply(message, ":white_check_mark: You are on the Admin List!");
             	} else if (adminList.indexOf(message.author.id) === 1) {
-                	bot.reply(message, ":x: | Either you havent added yourself to the adminList file... or you're a regular user not in the ADMINLIST. Ask the owner of the server to admin you if you're server staff!");
+                	bot.reply(message, ":x: You aren't in the Admin List. Please contact the Server Owner if you are staff!");
             	}
 			} else {
             	bot.sendMessage(message, "Caught Error\n```\n" + err + "\n```");
@@ -104,7 +104,7 @@ bot.on("message", message => {
             	if (adminList.indexOf(message.author.id) > -1) {
                 	bot.sendMessage(message, "***Current Configuration for the Bot*** (Important SERVER stuff.)\nPREFIX: `" + botConfiguration.prefix + "`\n-   *More coming soon!*");
             	} else if (adminList.indexOf(message.author.id) === -1) {
-                	bot.reply(message, ":x: | Either you havent added yourself to the adminList file... or you're a regular user not in the ADMINLIST. Ask the owner of the server to admin you if you're server staff!");
+                	bot.reply(message, ":x: You aren't in the Admin List. Please contact the Server Owner if you are staff!");
             	}
 			} else {
                 bot.sendMessage(message, "Caught Error\n```\n" + err + "\n```");
@@ -126,13 +126,13 @@ bot.on("message", message => {
                                 bot.sendMessage(message, util.format("Successfully added %s to the admin list.", addedUser));
                             });
                         } else {
-                            bot.reply(message, "That person is already added to the admin list.");
+                            bot.reply(message, "That person is already added to the Admin List.");
                         }
                     } else {
-                        bot.reply(message, "Please mention **1 (one)** person you wish to add to the admin list.");
+                        bot.reply(message, "Please mention **1 (one)** person you wish to add to the Admin List.");
                     }
                 } else if (adminList.indexOf(message.author.id) === -1) {
-                    bot.reply(message, ":x: | Either you havent added yourself to the adminList file... or you're a regular user not in the ADMINLIST. Ask the owner of the server to admin you if you're server staff!");
+                    bot.reply(message, ":x: You aren't in the Admin List. Please contact the Server Owner if you are staff!");
                 }
             } else {
                 bot.sendMessage(message, "Caught Error\n```\n" + err + "\n```");
@@ -157,10 +157,10 @@ bot.on("message", message => {
                             bot.reply(mess, "That user is not in the admin list!");
                         }
                     } else {
-                        bot.reply(message, "Please mention **1 (one)** person you wish to remove from the admin list.");
+                        bot.reply(message, "Please mention **1 (one)** person you wish to remove from the Admin List.");
                     }
                 } else if (adminList.indexOf(message.author.id) === -1) {
-                    bot.reply(message, ":x: | Either you havent added yourself to the adminList file... or you're a regular user not in the ADMINLIST. Ask the owner of the server to admin you if you're server staff!");
+                    bot.reply(message, ":x: You aren't in the Admin List. Please contact the Server Owner if you are staff!");
                 }
             } else {
                 bot.sendMessage(message, "Caught Error\n```\n" + err + "\n```");
