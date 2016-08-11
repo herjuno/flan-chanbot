@@ -1,11 +1,12 @@
 {
-	"token": "token", 
+	"token": "", 
 	"prefix": "?",
 	"useEmail": false,
 	"email": "email",
 	"password": "password",
-	"botName": "default-name-test",
-	"botDesc": "default-description-test",
+	"botName": "default-name",
+	"botDesc": "default-description",
+	"ownerID": "",
 	"log": false,
 	"logchannel": ""
 }
